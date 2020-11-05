@@ -4,6 +4,10 @@
 
 We have data from the paper [Linnekamp paper](https://www.nature.com/articles/s41418-017-0011-5). It is gene expression measured using microarrays.
 
+## Binder
+
+Binder link: https://mybinder.org/v2/gh/marcpaga/oncode_mc_2020_data_wrangling/HEAD
+
 ## Scripts
 
 `download_dataset.R`: downloads the data.

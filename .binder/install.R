@@ -1,6 +1,5 @@
 install.packages(
   "e1071",
-  "GEOquery",
   "ggplot2",
   "gplots"
 )
@@ -13,3 +12,4 @@ BiocManager::install("sva")
 BiocManager::install("SummarizedExperiment")
 BiocManager::install("pcaMethods")
 BiocManager::install("affy")
+BiocManager::install("GEOquery")

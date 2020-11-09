@@ -676,6 +676,8 @@ We can try different combinations of the above described methods (normalization,
 
 To get some reliable values we will do a simple quick cross-validation by setting up a subset of the samples separated. Let's keep for example the 3rd batch out.
 
+## With normalization, imputation and batch correction
+
 ```{r}
 
 x_train <- norm_imputed_batchcorr[, sample_data$batch %in% c(1, 2)]
@@ -688,14 +690,52 @@ y_validation <- sample_data$CMS[sample_data$batch %in% c(3)]
 ```{r}
 
 model <- build_model(x_train, y_train)
-
 predictions <- predict_new_data(x_validation, model)
-
 performance(y_validation, predictions)
 
 ```
 
 Let's try with other datasets, for example if we use `norm_imputed` that has not been batch corrected, will it work? You can try other states of the dataset, unfortunately this machine learning method does not deal automatically with missing values, so you will have to take care of them first.
+
+## With normalization, imputation and NOT batch correction
+
+```{r}
+
+x_train <- norm_imputed[, sample_data$batch %in% c(1, 2)]
+x_validation <- norm_imputed[, sample_data$batch %in% c(3)]
+y_train <- sample_data$CMS[sample_data$batch %in% c(1, 2)]
+y_validation <- sample_data$CMS[sample_data$batch %in% c(3)]
+
+```
+
+```{r}
+
+model <- build_model(x_train, y_train)
+predictions <- predict_new_data(x_validation, model)
+performance(y_validation, predictions)
+
+```
+
+## With normalization, imputation, batch correction and randomized labels
+
+```{r}
+
+x_train <- norm_imputed[, sample_data$batch %in% c(1, 2)]
+x_validation <- norm_imputed[, sample_data$batch %in% c(3)]
+y_train <- sample_data$CMS[sample_data$batch %in% c(1, 2)]
+y_validation <- sample_data$CMS[sample_data$batch %in% c(3)]
+
+y_train <- sample(y_train, length(y_train))
+
+```
+
+```{r}
+
+model <- build_model(x_train, y_train)
+predictions <- predict_new_data(x_validation, model)
+performance(y_validation, predictions)
+
+```
 
 # Beyond data wrangling
 

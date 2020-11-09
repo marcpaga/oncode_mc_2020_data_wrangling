@@ -37,6 +37,7 @@ We will go through a checklist of the main tasks to do before embarking in any m
 - Scaling
 - Batch correction
 - Dealing with missing values
+- Quick ML model example
 
 Let's think about two characteristics about the data: 
 

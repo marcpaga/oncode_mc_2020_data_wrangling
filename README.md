@@ -21,5 +21,8 @@ Binder link: https://mybinder.org/v2/gh/marcpaga/oncode_mc_2020_data_wrangling/H
 
 ## Files
 
-`data_wrangling.Rmd`: the notebook for the masterclass, for interactive purposes.
-`data_wrangling.html`: static image of the above notebook.
+`data_wrangling.Rmd`: the notebook for the masterclass, for interactive purposes, in RMarkdown format.
+
+`data_wrangling.ipynb`: the notebook for the masterclass, for interactive purposes, in jupyter notebook format.
+
+`data_wrangling.html`: static image of the above notebooks.
